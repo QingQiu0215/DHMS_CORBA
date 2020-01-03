@@ -1,0 +1,19 @@
+module OperationsApp
+{
+  interface Operations
+  {  
+	  void writeTxtClient(in string clientID,in string task, in string resultStr);
+	  void writeTxtServerMTL(in string clientID,in string patientID,in string appointmentType,in string appointmentID,in string task, in string resultStr);
+	  void writeTxtServerQUE(in string clientID,in string patientID,in string appointmentType,in string appointmentID,in string task, in string resultStr);
+	  void writeTxtServerSHE(in string clientID,in string patientID,in string appointmentType,in string appointmentID,in string task, in string resultStr);
+	  string bookAppointment(in string clientID,in string patientID, in string appointmentID, in string appointmentType);
+	  string getAppointmentSchedule(in string patientID);
+	  string cancelAppointment(in string clientID, in string patientID,in string appointmentID, in string appointmentType);
+	  string swapAppointment(in string clientID, in string patientID,in string oldAppointmentID, in string oldAppointmentType,in string newAppointmentID, in string newAppointmentType);
+	  string addAppointment(in string appointmentID,in string appointmentType,in string capacity,in string appointmentWeekStr);
+	  boolean checkAppointmentExisted(in string appointmentID,in string appointmentType);
+	  string removeAppointment(in string appointmentID,in string appointmentType);
+	  string listAppointmentAvailability(in string appointmentType);
+	  oneway void shutdown();
+    };
+};
